@@ -4,16 +4,16 @@ int main() {
   int choice, quantity;
   float total, total1, total2, total3;
   char more;
-  char name[];
+  char name[15];
 
   printf("Welcome to Le Voun Restaurant!\n");
 
   printf("Please enter your name: ");
-  scanf("%s", &name[]);
+  scanf("%s", name);
 
   do{
-      printf("Hello, %s", name[]);
-      printf("Here is our menu :\n");
+      printf("Hello, %s\n", name);
+      printf("Here is our menu:\n");
       printf("1. Burger - Rp20.000\n");
       printf("2. Pizza - Rp.35.000\n");
       printf("3. Taco - Rp.15.000\n");
@@ -42,3 +42,6 @@ int main() {
     } while (more == 'y' || more == 'Y');
 
   printf("Your total is Rp%.2f", total);
+  
+  return 0;
+}
