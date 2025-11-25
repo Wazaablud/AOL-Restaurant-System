@@ -4,10 +4,15 @@ int main() {
   int choice, quantity;
   float total, total1, total2, total3;
   char more;
+  char name[];
 
-  printf("Welcome to Nevan bau Restaurant!\n");
+  printf("Welcome to Le Voun Restaurant!\n");
+
+  printf("Please enter your name: ");
+  scanf("%s", &name[]);
 
   do{
+      printf("Hello, %s", name[]);
       printf("Here is our menu :\n");
       printf("1. Burger - Rp20.000\n");
       printf("2. Pizza - Rp.35.000\n");
@@ -18,7 +23,7 @@ int main() {
 
       if(choice == 4){
         break;
-        }
+      }
 
       printf("Enter quantity :\n");
       scanf("%d", &quantity);
