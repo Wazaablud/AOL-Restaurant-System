@@ -1,47 +1,53 @@
 #include <stdio.h>
 
 int main() {
-  int choice, quantity;
-  float total, total1, total2, total3;
-  char more;
-  char name[15];
+	int choice, quantity, i;
+	float total, total1, total2, total3, total4;
+	char more;
+	char name[15];
+	char menu[4][10] = {"Burger", "Pizza", "Taco", "Kebab"};
+	char price[4][10] = {"Rp20.000", "Rp35.000", "Rp15.000", "Rp10.000"};
 
-  printf("Welcome to Le Voun Restaurant!\n");
+	printf("Welcome to Le Voun Restaurant!\n");
 
-  printf("Please enter your name: ");
-  scanf("%s", name);
+	printf("Please enter your name: ");
+	scanf("%s", name);
+	printf("Hello, %s\n", name);
 
-  do{
-      printf("Hello, %s\n", name);
-      printf("Here is our menu:\n");
-      printf("1. Burger - Rp20.000\n");
-      printf("2. Pizza - Rp.35.000\n");
-      printf("3. Taco - Rp.15.000\n");
-      printf("4. Exit order\n");
-      printf("Enter your choice (1-4)\n");
-      scanf("%d", &choice); 
+	do {
+		printf("Here is our menu:\n");
+    	for (i = 1; i <= 5; i++) {
+    		if (i == 5) {
+    			printf("%d. Exit order\n", i);
+    			break;
+			  }
+    		printf("%d. %s - %s\n", i, menu[i - 1], price[i - 1]);
+		  }
+    	printf("Enter your choice (1-%d)\n", i);
+    	scanf("%d", &choice); 
 
-      if(choice == 4){
-        break;
-      }
+    	if (choice == i){
+    		break;
+    	}
 
-      printf("Enter quantity :\n");
-      scanf("%d", &quantity);
+    	printf("Enter quantity :\n");
+    	scanf("%d", &quantity);
 
-      switch (choice){
-      case 1: total1 = 20000 * quantity; break;
-      case 2: total2 = 35000 * quantity; break;
-      case 3: total3 = 15000 * quantity; break;
-      default:
-          printf("Invalid Choice!\n");
-      }
+    	switch (choice){
+    	  case 1: total1 = 20000 * quantity; break;
+			  case 2: total2 = 35000 * quantity; break;
+			  case 3: total3 = 15000 * quantity; break;
+			  case 4: total4 = 10000 * quantity; break;
+			  default:
+			  printf("Invalid Choice!\n");
+    	}
 
-      printf("Do you want to order more? (y/n) ");
-      scanf(" %c", &more);
-      total = total1 + total2 + total3;
-    } while (more == 'y' || more == 'Y');
+    	printf("Do you want to order more? (y/n) ");
+    	scanf(" %c", &more);
+    	total = total1 + total2 + total3 + total4;
+	} while (more == 'y' || more == 'Y');
 
-  printf("Your total is Rp%.2f", total);
+	printf("Your total is Rp%.2f", total);
   
-  return 0;
+	return 0;
 }
