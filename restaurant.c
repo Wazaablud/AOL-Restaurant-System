@@ -51,7 +51,7 @@ void searchCustomer(char searchName[]) {
 
     if (fp == NULL) return;
 
-    while (fscanf(fp, "%s %.2f", p.name, &p.total) != EOF) {
+    while (fscanf(fp, "%s %f", p.name, &p.total) != EOF) {
         if (strcmp(p.name, searchName) == 0) {
             printf("Customer found: %s has total spend of Rp%.2f\n", p.name, p.total);
             found = 1;
@@ -86,6 +86,7 @@ int main() {
 			printf("Hello, %s\n", customerName);
 
 			do{
+				order:
 				printf("Here is our menu:\n");
     			for (z = 1; z <= 5; z++) {
     				if (z == 5) {
@@ -97,8 +98,12 @@ int main() {
     			printf("Enter your choice (1-%d)\n", z);
     			scanf("%d", &choice);
     	
-    			if(choice == z) {
+    			if (choice == z) {
     				break;
+				}
+				else if (choice > z) {
+					printf("Invalid Choice!\n\n");
+					goto order;
 				}
 
     			printf("Enter quantity :\n");
@@ -137,8 +142,7 @@ int main() {
 			return 0;
 		}
 		else {
-			printf("Invalid input!\n");
-			keepOrdering = 0;
+			printf("Invalid Choice!\n\n");
 		}
 	}
   
